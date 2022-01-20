@@ -1,0 +1,47 @@
+<div class="rounded-t-md" *ngIf="page">
+  <div class="">
+    <ul>
+      <li *ngIf="page.content.length == 0">
+        <app-empty-list-row></app-empty-list-row>
+      </li>
+      <li class="mb-1"
+          *ngFor="let item of page.content | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: page.number + 1,
+                    totalItems: page.totalElements
+                  };">
+        <ng-container
+          *ngIf="rowTemplate"
+          [ngTemplateOutlet]="rowTemplate"
+          [ngTemplateOutletContext]="{$implicit:item}"
+        ></ng-container>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="p-3 rounded-b-md bg-dark-primary space-x-0">
+  <div class="sm:flex-1 flex justify-center">
+    <div class="hidden sm:block bg-light-primary rounded-md p-3 mr-2" *ngIf="page">
+      <p class="text-sm text-dark-primary text-center">
+        Showing
+        <span class="font-medium">{{page.pageable.offset + 1}}</span>
+        to
+        <span class="font-medium">{{page.pageable.offset + page.numberOfElements}}</span>
+        of
+        <span class="font-medium">{{page.totalElements}}</span>
+        results
+      </p>
+    </div>
+    <nav class="relative flex items-center rounded-md bg-light-primary ml-2">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        class="pagination"
+        [responsive]=true
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
+    </nav>
+  </div>
+</div>
+
+

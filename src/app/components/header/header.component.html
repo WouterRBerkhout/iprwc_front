@@ -1,0 +1,16 @@
+<nav class="bg-dark-primary w-full mx-auto py-3 px-2 sm:px-6 lg:px-8 flex justify-end items-center">
+  <button
+    type="button"
+    title="Back"
+    class="text-lg px-3 py-2 text-text-1 rounded-lg bg-light-primary mr-auto leading-none"
+    (click)="back()">
+    <i class="material-icons text-2xl">home</i>
+  </button>
+  <p class="text-light-primary mr-4">{{ getUsername() }}</p>
+  <button
+    type="button"
+    title="Log out"
+    class="text-lg px-3 py-2 text-text-1 rounded-lg bg-light-primary"
+    (click)="logout()">Log out
+  </button>
+</nav>

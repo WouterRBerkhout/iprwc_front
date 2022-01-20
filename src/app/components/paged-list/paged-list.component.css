@@ -1,0 +1,11 @@
+.pagination::ng-deep .ngx-pagination {
+  margin-bottom: 0;
+}
+.pagination::ng-deep .ngx-pagination .current {
+  background: #191919 !important;
+}
+
+.pagination::ng-deep .pagination-previous,
+.pagination::ng-deep  .pagination-next {
+  color: #3C3C3C !important;
+}
