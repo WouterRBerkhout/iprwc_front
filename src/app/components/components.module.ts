@@ -7,25 +7,42 @@ import {EmptyListRowComponent} from "./paged-list/empty-list-row/empty-list-row.
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "../app-routing.module";
 import {BrowserModule} from "@angular/platform-browser";
+import { LoginModalComponent } from './header/login-modal/login-modal.component';
+import {SnackbarComponent} from "./snackbar/snackbar.component";
+import {ModalComponent} from "./modal/modal.component";
+import {LoginService} from "./login.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [
     PagedListComponent,
+    ModalComponent,
     HeaderComponent,
-    EmptyListRowComponent
+    SnackbarComponent,
+    EmptyListRowComponent,
+    LoginModalComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     HttpClientModule,
     AppRoutingModule
   ],
+  providers: [
+    LoginService
+  ],
   exports: [
     PagedListComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginModalComponent,
+    ModalComponent,
+    SnackbarComponent,
+    EmptyListRowComponent
   ]
 })
 export class ComponentsModule { }

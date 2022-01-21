@@ -1,0 +1,10 @@
+<div
+  *ngIf="show"
+  [@show]="show"
+  [ngClass]="['snackbar-wrap',type]"
+  class="p-3 z-10 fixed bottom-0 drop-shadow-sm left-1/2 w-full"
+>
+  <p class="text-light-primary text-center">
+    {{message}}
+  </p>
+</div>

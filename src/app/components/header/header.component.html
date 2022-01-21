@@ -7,10 +7,18 @@
     <i class="material-icons text-2xl">home</i>
   </button>
   <p class="text-light-primary mr-4">{{ getUsername() }}</p>
-  <button
+  <button *ngIf="getUsername() != null; else elseBlock"
     type="button"
     title="Log out"
     class="text-lg px-3 py-2 text-text-1 rounded-lg bg-light-primary"
     (click)="logout()">Log out
   </button>
+  <ng-template #elseBlock>
+    <button
+      type="button"
+      title="Login"
+      class="text-lg px-3 py-2 text-text-1 rounded-lg bg-light-primary"
+      (click)="openLogin()">Login
+    </button>
+  </ng-template>
 </nav>

@@ -10,6 +10,7 @@ export class ItemOverviewComponent implements OnInit {
   constructor(public itemService: ItemService) { }
 
   ngOnInit(): void {
+
   }
 
 }

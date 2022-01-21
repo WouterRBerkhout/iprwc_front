@@ -1,0 +1,9 @@
+.snackbar-wrap {
+  transform: translate(-50%, 0%);
+  &.success {
+    background: rgb(0, 173, 72);
+  }
+  &.danger {
+    background: rgb(173, 35, 0);
+  }
+}
