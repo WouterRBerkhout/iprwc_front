@@ -6,6 +6,22 @@
     (click)="back()">
     <i class="material-icons text-2xl">home</i>
   </button>
+
+  <button
+    type="button"
+    title="Orders"
+    class="text-lg px-3 py-2 text-text-1 mr-3 rounded-lg bg-light-primary mr-auto leading-none"
+    (click)="orders()">
+    <i class="text-2xl">Orders</i>
+  </button>
+
+  <button
+    type="button"
+    title="cart"
+    class="text-lg px-3 py-2 text-text-1 mr-4 rounded-lg bg-light-primary"
+    (click)="openCart()"
+  > <img src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg" height="25" width="25"  alt=""/>
+  </button>
   <p class="text-light-primary mr-4">{{ getUsername() }}</p>
   <button *ngIf="getUsername() != null; else elseBlock"
     type="button"

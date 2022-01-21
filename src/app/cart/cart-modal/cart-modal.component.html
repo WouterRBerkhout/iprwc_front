@@ -1,0 +1,36 @@
+<app-modal #modalComponent>
+  <h1 class="text-2xl font-semibold mb-3">Cart</h1>
+  <div>
+    <ul>
+      <li class="mb-1"
+          *ngFor="let item of cartService.items"
+      >
+        <div class="flex justify-items-center justify-between">
+          <div class="flex justify-between space-x-1 m-0">
+            <p>{{item.item.name}}</p>
+            <p>€ {{item.item.price}}</p>
+          </div>
+          <div class="flex justify-between space-x-1 m-0">
+            <button (click)="cartService.changeQuantity(item, -1)" class="text-lg px-2 py-2 text-text-1       rounded-lg bg-error">-</button>
+            <p class ="" >{{item.quantity}}</p>
+            <button (click)="cartService.changeQuantity(item, 1)"class="text-lg px-2 py-2 text-text-1       rounded-lg bg-success">+</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="py-3 flex justify-between">
+      <button
+        (click)="close()"
+        type="button"
+        class=" px-4 py-2 bg-error       text-light-primary font-bold rounded-md shadow-lg hover:ring-dark-secondary hover:ring-offset-2 hover:ring-2"
+      >Close</button>
+
+      <button
+        (click)="order()"
+        type="button"
+        class="py-2 px-4 bg-dark-primary text-light-primary font-bold rounded-md shadow-lg hover:ring-dark-secondary hover:ring-offset-2 hover:ring-2"
+        [disabled]=""
+      >Order</button>
+    </div>
+  </div>
+</app-modal>

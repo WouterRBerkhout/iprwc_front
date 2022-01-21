@@ -12,6 +12,8 @@ import {SnackbarComponent} from "./snackbar/snackbar.component";
 import {ModalComponent} from "./modal/modal.component";
 import {LoginService} from "./login.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ConfirmationModalComponent} from "./confirmation-modal/confirmation-modal.component";
 
 
 
@@ -22,7 +24,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HeaderComponent,
     SnackbarComponent,
     EmptyListRowComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
     NgxPaginationModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     LoginService
@@ -42,7 +46,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     LoginModalComponent,
     ModalComponent,
     SnackbarComponent,
-    EmptyListRowComponent
+    EmptyListRowComponent,
+    ConfirmationModalComponent
   ]
 })
 export class ComponentsModule { }

@@ -47,6 +47,45 @@ export class LoginModalComponent extends PassableInterface<LoginModel> implement
     });
   }
 
+  public onClickSubmit(): void {
+    if (document.activeElement.id == "login") {
+      this.login()
+    } else if (document.activeElement.id == "signup") {
+      this.signup()
+    } else {
+      this.snackbarService.show(
+        'Invalid input',
+        SnackbarType.DANGER,
+        5000
+      );
+    }
+  }
+
+  public signup(): void {
+    if (!this.validate()) return;
+    this.loginService
+      .signup(this.loginForm.value.username, this.loginForm.value.password)
+      .subscribe({
+        next: (response) => {
+          this.loginService.redirectToHome(response);
+        },
+        error: (error: string) => {
+          console.error(error);
+          this.snackbarService.show(
+            'Username already in use',
+            SnackbarType.DANGER,
+            5000
+          );
+          this.loginForm.reset('');
+        },
+        complete: () => {
+          this.snackbarService.show('Signed up!', SnackbarType.SUCCESS);
+          this.modal?.close();
+        },
+      });
+
+  }
+
   public login(): void {
     if (!this.validate()) return;
     this.loginService
@@ -65,11 +104,10 @@ export class LoginModalComponent extends PassableInterface<LoginModel> implement
           this.loginForm.reset('');
         },
         complete: () => {
-          this.snackbarService.show('User created', SnackbarType.SUCCESS);
+          this.snackbarService.show('Logged in', SnackbarType.SUCCESS);
           this.modal?.close();
         },
       });
-
   }
 
   public validate(): boolean {

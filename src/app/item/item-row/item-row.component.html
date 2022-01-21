@@ -2,7 +2,23 @@
   <div class="flex justify-items-center justify-between">
     <p class="self-center text-light-primary text-center text-lg">{{item.name}}</p>
     <div class="flex justify-between space-x-2 m-0">
-        <!--buttons!-->
+      <button
+        *ngIf="stateService.getUser().role == 'SUPERUSER'"
+        (click)="deleteItem()"
+        class="text-lg px-3 py-2 text-text-1 rounded-lg bg-error"
+      >Delete</button>
+      <button
+        *ngIf="stateService.getUser().role == 'SUPERUSER'"
+        (click)="openEdit()"
+        class="text-lg px-3 py-2 text-text-1 rounded-lg bg-light-primary"
+      >Edit</button>
+      <p class="self-center text-light-primary text-center text-lg mr-3">
+        <span class="font-semibold">Price:</span>
+        € {{item.price}}
+        <span class="font-semibold">Stock:</span>
+        {{item.stock}}
+      </p>
+      <button (click)="addToCart()" class="text-lg px-3 py-2 text-text-1       rounded-lg bg-light-primary">+</button>
     </div>
   </div>
 </div>

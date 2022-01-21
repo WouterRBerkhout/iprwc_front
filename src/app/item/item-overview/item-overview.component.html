@@ -1,10 +1,10 @@
 <article class="flex-1">
   <section class="flex justify-between mb-6 py-3 px-8 rounded-t-md bg-dark-primary">
     <h1 class="text-2xl font-semibold text-light-primary my-4">Items</h1>
-<!--    <button
-      (click)="openModal()"
-      class="text-lg ml-auto px-3 py-2 text-dark-primary rounded-md border-2 border-dark-primary bg-light-primary hover:bg-light-tertiary"
-    >Add new moderator</button>-->
+    <button *ngIf="stateService.getUser().role == 'SUPERUSER'"
+            (click)="openModal()"
+            class="text-lg ml-auto px-3 py-2 text-dark-primary rounded-md border-2 border-dark-primary bg-light-primary hover:bg-light-tertiary"
+    >Add item</button>
   </section>
   <app-paged-list-component [pageableInterface]="itemService">
     <ng-template let-item #row>

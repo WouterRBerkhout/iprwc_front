@@ -1,0 +1,12 @@
+<app-modal #modalComponent>
+  <app-paged-list-component [pageableInterface]="orderItemsService">
+    <ng-template let-orderItem #row>
+      <app-order-item [orderItem]="orderItem"></app-order-item>
+    </ng-template>
+  </app-paged-list-component>
+  <button
+    (click)="close()"
+    type="button"
+    class=" px-4 py-2 bg-error       text-light-primary font-bold rounded-md shadow-lg hover:ring-dark-secondary hover:ring-offset-2 hover:ring-2"
+  >Close</button>
+</app-modal>

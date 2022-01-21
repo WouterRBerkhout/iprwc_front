@@ -15,11 +15,20 @@ export class LoginService {
   ) {
   }
 
+
+
   public login(username: string, password: string): Observable<UserModel> {
     return this.http.post<UserModel>(environment.apiUrl + '/auth/login', {
       username,
       password,
-    });
+    },  {withCredentials: true });
+  }
+
+  public signup(username: string, password: string): Observable<UserModel> {
+    return this.http.post<UserModel>(environment.apiUrl + "/user", {
+      username,
+      password,
+    })
   }
 
   public checkIfLoggedIn(): Observable<UserModel> {

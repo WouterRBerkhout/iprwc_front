@@ -1,0 +1,10 @@
+<article class="flex-1">
+  <section class="flex justify-between mb-6 py-3 px-8 rounded-t-md bg-dark-primary">
+    <h1 class="text-2xl font-semibold text-light-primary my-4">Orders</h1>
+  </section>
+  <app-paged-list-component [pageableInterface]="orderService">
+    <ng-template let-order #row>
+      <app-order [order]="order"></app-order>
+    </ng-template>
+  </app-paged-list-component>
+</article>
